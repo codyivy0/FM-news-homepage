@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+:root {
+    --soft-orange: hsl(35, 77%, 62%);
+    --soft-red: hsl(5, 85%, 63%);
+    --neutral-off-white: hsl(36, 100%, 99%);
+    --neutral-grayish-blue: hsl(233, 8%, 79%);
+    --neutral-dark-grayish-blue: hsl(236, 13%, 42%);
+    --neutral-very-dark-blue: hsl(240, 100%, 5%);
+  }
+
+  *{
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    line-height: 1.1;
+  }
+  body{
+    box-sizing: border-box; 
+    display: flex;
+    margin: 0; 
+  }
+  main{  
+    margin: 0 auto;
+    display: grid;    
+    gap: 1.5rem;
+    width: 90%; 
+    grid-template-rows:repeat(6, auto) 15%;
+    grid-template-areas: 
+    'nav-bar'
+    'web3-image'
+    'web3-header'
+    'web3-text'
+    'new-articles'
+    'trending1'
+    'trending2'
+    'trending3';  
+  }
+
+  .nav-bar{ 
+    display: flex;
+    flex-direction: row;
+    grid-area: nav-bar;
+    justify-content: space-between;
+    align-items: center; 
+    margin-top: 1rem;
+  }
+  .nav-bar img{
+    padding-block: 1rem;
+  }
+  .nav-links{
+    display: none;
+    flex-direction: row;
+    margin-left: auto;
+    justify-content: space-between;
+    width: 45%;
+    color: var(--neutral-dark-grayish-blue);
+  }
+  .nav-links p:hover{
+    cursor: pointer;
+    color: var(--soft-orange);
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+  
+  .mobile-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    z-index: 2;
+    flex-direction: column;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  .mobile-links img{
+    margin-left : auto;
+    margin-bottom: 4rem;
+  }
+  .mobile-links p{
+    line-height: 2.5;
+    font-weight: bold;
+  }
+  .web3-image{
+    grid-area: web3-image;
+    max-height: 60%;
+  }
+  .web3-image img{
+    width: 100%; 
+    height: 16rem;
+
+  }
+  .web3-header{
+    grid-area: web3-header;
+    font-weight: 600;
+    font-size: 1.3rem;
+    padding-right: 4rem;
+  }
+  .web3-text{
+    grid-area: web3-text;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+  }
+  .web3-text p{
+    font-size: .8rem;
+    line-height: 1.3;
+    padding-right: 3rem;
+    color: var(--neutral-dark-grayish-blue);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .web3-text button{
+    background-color: var(--soft-red);
+    border: none;
+    width: 50%;
+    color: white;
+    height: 2rem;
+  }
+  .web3-text button:hover{
+    cursor: pointer;
+    background-color: var(--neutral-very-dark-blue);
+  }
+  .new-articles{
+    grid-area: new-articles;
+    background-color: var(--neutral-very-dark-blue);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .new-articles h1{
+    color: var(--soft-orange);
+    padding-bottom: 1rem;
+  }
+  .article{
+    border-bottom: 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: 1rem;
+  }
+  .article h3{
+    line-height: 1.5;  
+  }
+  .article h3:hover{
+    color: var(--soft-orange);
+    cursor: pointer;
+  }
+  .article p{
+    line-height: 1.5;  
+  }
+  .article:last-child{
+    border: none;
+  }
+  .trending{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    height: 7rem;  
+
+  }
+  .trending:nth-child(1){
+    grid-area: trending1;
+  }
+  
+  .trending:nth-child(2){
+    grid-area: trending2;
+  }
+  
+  .trending:nth-child(3){
+    grid-area: trending3;
+  }
+  .trending img{
+    max-height: 100%;
+    margin-right: 1rem;
+  }
+  .trending-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .trending-content h2{
+    color: var(--neutral-grayish-blue);
+  }
+  .trending-content h3:hover{
+    cursor: pointer;
+    color: var(--soft-red);
+  }
+  .trending-content p{
+    color: var(--neutral-dark-grayish-blue); 
+    font-size: .8rem;
+  }
+
+
+  @media (min-width:50em) {
+    main{
+        width: 70%;
+        grid-template-areas: 
+        'nav-bar nav-bar nav-bar'
+        'web3-image web3-image new-articles'
+        'web3-header web3-text new-articles'
+        'trending1 trending2 trending3';
+    }
+    .nav-links{
+        display: flex;
+    }
+    .mobile-nav{
+        display:none;
+      }
+      .web3-image img{
+        content: url(./assets/images/image-web-3-desktop.jpg);
+      }
+  }
